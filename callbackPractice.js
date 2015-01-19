@@ -97,23 +97,29 @@ contains(names, 'Colt', function(result){
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
-var newRemove = function(arr) {
-  for (var i = 0; i < arr.length; i++) {
-    for (var j = i + 1; j < arr.length; j++) {
-      if(arr[i] === arr[j]) {
-        arr.splice(j, 1);
+// var newRemove = function(arr) {
+//   for (var i = 0; i < arr.length; i++) {
+//     for (var j = i + 1; j < arr.length; j++) {
+//       if(arr[i] === arr[j]) {
+//         arr.splice(j, 1);
 
 
-      }
-    };
-  };
-  return arr;
-}
+//       }
+//     };
+//   };
+//   return arr;
+// }
 
 
 
 var uniq = function(newArr, cb) {
-  cb(newRemove(newArr));
+  for (var i = 0; i < newArr.length; i++) {
+    if(i != newArr.indexOf(newArr[i])){
+      newArr.splice(i, 1);
+      i--;
+    }
+  };
+  cb(newArr);
 
 
 
